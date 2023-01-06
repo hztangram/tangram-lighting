@@ -1,0 +1,500 @@
+@charset "UTF-8";
+
+/* 폰트 셋팅 */
+/*프리텐다드*/
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
+
+
+
+
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    unicode-range: U+0041-005A, U+0061-007A, U+0030-0039;
+}
+
+body {
+    font-family: 'Inter', 'Pretendard Variable', sans-serif;
+    font-weight: normal;
+    /*overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;*/
+    letter-spacing: normal;
+    line-height: 1;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    word-break: break-all;
+    word-wrap: break-word;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@supports (font-variation-settings: normal) {
+    body {
+        font-family: 'Inter var', 'Pretendard Variable', sans-serif;
+    }
+}
+
+.en {
+    font-family: 'Inter', sans-serif;
+    word-break: keep-all;
+}
+
+@supports (font-variation-settings: normal) {
+    .en {
+        font-family: 'Inter var', sans-serif;
+    }
+}
+
+
+.jp {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+    .jp {
+        font-family: 'Inter var', 'Noto Sans JP', sans-serif;
+    }
+}
+
+.cn {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+    .cn {
+        font-family: 'Inter var', 'Noto Sans SC', sans-serif;
+    }
+}
+
+
+/* reset ::: 스타일초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    position: relative;
+    width: 100%;
+    /* height: 100%; */
+    height:auto;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    min-width: 320px;
+    background: #fff;
+    
+    -webkit-overflow-scrolling: touch;
+}
+
+html,
+body {
+    overscroll-behavior-y: none;
+    overscroll-behavior-x: none;
+}
+.hidden{ position: absolute !important; 
+    top:auto;
+    left:-10000px; 
+    width:1px; 
+    height:1px; 
+    overflow:hidden;}
+.wrap{overflow: hidden}
+
+.relative {
+    position: relative
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: #666;
+}
+
+a:link,
+a:visited {
+    text-decoration: none;
+    color: #666;
+}
+
+a:hover,
+a:active {
+    text-decoration: none;
+    color: #666;
+}
+
+div:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+ul:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+ol:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+li:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+dl:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+section:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+nav:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+footer:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* table 기본설정 */
+table {
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td,
+th,
+fieldset,
+img,
+abbr,
+acronym,
+img,
+fieldset,
+iframe {
+    border: 0 none;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var {
+    font-weight: normal;
+    font-style: normal;
+}
+
+dl,
+dt,
+dd,
+ul,
+ol,
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+caption,
+legend {
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    height: 0;
+    width: 0;
+    text-indent: -999em;
+}
+
+hr {
+    display: none;
+}
+
+img,
+input,
+button,
+select,
+textarea {
+    vertical-align: middle;
+    font-family: 'inter, Noto Sans, Pretendard,', sans-serif;
+
+    font-weight: normal;
+}
+
+input {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
+
+/* 폼태그 기본 설정 */
+
+:focus:not(a) {
+    outline: none !important;
+}
+
+
+form {
+    margin: 0;
+    padding: 0;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+}
+
+.ie7 legend {
+    position: absolute;
+    left: -99999px;
+    top: -9999px;
+    display: inline;
+    width: 1px;
+    height: 1px;
+    text-indent: 0;
+}
+
+label {
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle
+}
+
+caption {
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    line-height: 0;
+}
+
+button {
+    cursor: pointer;
+    border: 0 none;
+}
+
+button,
+input,
+textarea {
+    margin: 0;
+    outline: none;
+}
+
+button:focus,
+input:focus,
+textarea:focus {
+    outline: none !important;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+    margin: 0;
+    padding: 0;
+}
+
+input[type="text"],
+input[type="password"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    border: none;
+}
+
+select,
+textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    border: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+select {
+    vertical-align: middle;
+    padding-left: 10px;
+    border: none;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+
+
+/* placeholder 스타일 지정 */
+input::placeholder {
+    color: #999;
+    font-size: 16px;
+    font-weight: 300;
+    opacity: 1;
+    /* 파이어폭스에서 뿌옇게 나오는 현상을 방지하기 위한 css */
+}
+
+input::-webkit-input-placeholder {
+    color: #999;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+/* IE */
+input:-ms-input-placeholder {
+    color: #999;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+/* Firefox */
+input:-mos-input-placeholder {
+    color: #999;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+
+
+textarea::placeholder {
+    color: #999;
+    font-size: 16px;
+    font-weight: 300;
+    opacity: 1;
+    /* 파이어폭스에서 뿌옇게 나오는 현상을 방지하기 위한 css */
+}
+
+textarea::-webkit-input-placeholder {
+    color: #999;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+textarea:-ms-input-placeholder {
+    color: #999;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+textarea:-mos-input-placeholder {
+    color: #999;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+
+
+
+
+.sound_only {
+    display: inline-block !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 0;
+    line-height: 0;
+    border: 0 !important;
+    overflow: hidden !important;
+}
+
+/*****Align*****/
+.fn {
+    float: none !important
+}
+
+.fl {
+    float: left !important
+}
+
+
+.tac {
+    text-align: center !important
+}
+
+.tal {
+    text-align: left !important
+}
+
+.tar {
+    text-align: right !important
+}
+
+.vat {
+    vertical-align: top !important;
+}
+
+.vm {
+    vertical-align: middle !important;
+}
+
+
+/***** clear float *****/
+.clear {
+    clear: both;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.clearfix {
+    display: inline-block
+}
+
+.clearfix {
+    display: block
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+    visibility: hidden;
+}
