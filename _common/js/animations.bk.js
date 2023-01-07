@@ -1,166 +1,196 @@
-document.addEventListener('DOMContentLoaded', function () {
-  gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
-
-  let wrapper = document.querySelector('.lighting-wrap');
-  let commonTxt = gsap.utils.toArray('.lighting-wrap .common-txt');
-  let body = document.querySelector('body');
-  body.classList.add('fix');
-
+$(document).ready(function () {
+  document.querySelector('body').classList.add('fix');
+  ScrollTrigger.refresh();
+  ScrollTrigger.config({
+    autoRefreshEvents: 'visibilitychange,DOMContentLoaded,load', // "resize"가 목록에 없음을 알림
+  });
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);
   };
+  // check all images on the page
+  // $("img").each(function () {
+  //   var img = new Image()
+  //   img.onload = function () {
+  //     console.log($(this).attr("src") + " - done!")
+  //   }
+  //   img.src = $(this).attr("src")
+  // })
 
-  //   모든 애니메이션 덮어쓰기 쓸까말
-  //쓰지마 배경에만 적ㅇㅇ시키
-  //   gsap.defaults({
-  //     overwrite: true,
-  //   });
+  gsap.registerPlugin(ScrollTrigger);
 
-  const colorChange = () => {
-    const tl = gsap.timeline({ defaults: { overwrite: true, duration: 1 } });
-
-    return {
-      black: () => {
-        tl.to(wrapper, {
-          backgroundColor: '#000',
-          color: '#fff',
-        })
-          .to(commonTxt, {
-            borderColor: '#fff',
-          })
-          .to('.float-btns .modal-btn', {
-            borderColor: '#fff',
-            backgroundColor: '#fff',
-          })
-          .to('.float-btns .modal-btn path', {
-            fill: '#000',
-          })
-          .to('.float-btns .top-btn', {
-            borderColor: '#fff',
-          })
-          .to('.float-btns .top-btn path', {
-            stroke: '#fff',
-          });
-      },
-
-      white: () => {
-        tl.to(wrapper, {
-          backgroundColor: '#fff',
-          color: '#000',
-        })
-          .to(commonTxt, {
-            borderColor: '#000',
-          })
-          .to('.float-btns .modal-btn', {
-            borderColor: '#000',
-            backgroundColor: '#000',
-          })
-          .to('.float-btns .modal-btn path', {
-            fill: '#fff',
-          })
-          .to('.float-btns .top-btn', {
-            borderColor: '#000',
-          })
-          .to('.float-btns .top-btn path', {
-            stroke: '#000',
-          });
-      },
-    };
-  };
-
-  const fadeUp = {
+  let fadeUp = {
     y: 100,
     autoAlpha: 0,
   };
+  const colorChange = {
+    black: () => {
+      gsap.to('.lighting-wrap', {
+        backgroundColor: '#000',
+        color: '#fff',
 
-  const visual = () => {
+        overwrite: 'auto',
+      });
+      gsap.to('.lighting-wrap .common-txt', {
+        borderColor: '#fff',
+
+        overwrite: 'auto',
+      });
+      gsap.to('.float-btns .modal-btn', {
+        borderColor: '#fff',
+        backgroundColor: '#fff',
+      });
+      gsap.to('.float-btns .modal-btn path', {
+        fill: '#000',
+      });
+      gsap.to('.float-btns .top-btn', {
+        borderColor: '#fff',
+      });
+      gsap.to('.float-btns .top-btn path', {
+        stroke: '#fff',
+      });
+    },
+    white: () => {
+      gsap.to('.lighting-wrap', {
+        backgroundColor: '#fff',
+        color: '#000',
+
+        overwrite: 'auto',
+      });
+      gsap.to('.lighting-wrap .common-txt', {
+        borderColor: '#000',
+
+        overwrite: 'auto',
+      });
+      gsap.to('.float-btns .modal-btn', {
+        borderColor: '#000',
+        backgroundColor: '#000',
+      });
+      gsap.to('.float-btns .modal-btn path', {
+        fill: '#fff',
+      });
+      gsap.to('.float-btns .top-btn', {
+        borderColor: '#000',
+      });
+      gsap.to('.float-btns .top-btn path', {
+        stroke: '#000',
+      });
+    },
+  };
+
+  function mainVisual() {
     const overwraps = document.querySelectorAll('.overwrap img');
     const titles = document.querySelectorAll('.main-visual .tit p');
-    let tl = gsap.timeline({
-      ease: 'power4.in',
-      onComplete: () => {
-        body.classList.remove('fix');
-        document.querySelector('.overwrap').style.display = 'none';
-      },
-    });
+    const tl = new TimelineLite();
     tl.to(overwraps[0], {
       delay: 0.5,
+      ease: 'power4.out',
       autoAlpha: 0,
+      ease: 'power1.inOut',
       duration: 1,
     })
       .to(overwraps[1], {
         delay: 1,
+        duration: 1,
+        ease: 'power1.inOut',
         scale: 100,
-        duration: 1.2,
         transformOrigin: 'center',
       })
       .to(
         overwraps[1],
         {
           autoAlpha: 0,
-          duration: 0.8,
+          ease: 'power1.inOut',
         },
         '-=1'
       )
-      .from(titles[0], {
-        autoAlpha: 0,
-        xPercent: -30,
-        duration: 0.8,
-      })
+      .from(
+        titles[0],
+        {
+          autoAlpha: 0,
+          xPercent: -30,
+          duration: 0.8,
+          ease: 'power4.in',
+        },
+        '-=0.5'
+      )
       .from(
         titles[1],
         {
           autoAlpha: 0,
           xPercent: 30,
           duration: 0.8,
+          ease: 'power4.in',
+          onComplete: function () {
+            // $(".overwrap").hide()
+            // $("body").removeClass("fix")
+            document.querySelector('body').classList.remove('fix');
+          },
         },
         '-=0.5'
-      )
-      .to('.overwrap', {
-        duration: 1,
+      );
+
+    // gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: ".main-visual",
+    //     pin: true,
+    //     start: "top top",
+    //     end: "+=130%",
+    //     scrub: 1,
+    //   },
+    // })
+
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '.main-visual',
+          pin: true,
+          start: 'top top',
+          end: '+=130%',
+          scrub: 1,
+        },
+      })
+      .to('.main-visual .tit', {
+        autoAlpha: 0,
+        duration: 0.3,
       });
-  };
 
-  const visualScroll = () => {
-    ScrollTrigger.create({
-      trigger: '.main-visual .pin',
-      pin: true,
-      start: 'top top',
-      end: '+=130%',
-      scrub: true,
-    });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          toggleActions: 'play play reverse reverse',
+          trigger: '.main-visual .visual',
+          start: 'center center',
+          end: '+=50%',
+        },
+      })
+      .to('.main-visual .tit', {
+        autoAlpha: 0,
+        duration: 0.3,
+      });
 
-    gsap.from('.main-visual .txt', {
-      autoAlpha: 0,
-      yPercent: 100,
-      scrollTrigger: {
-        trigger: '.main-visual',
-        start: 'top top',
-        end: '+=100%',
-        scrub: 1,
-      },
-    });
-
-    gsap.to('.main-visual .tit', {
-      autoAlpha: 0,
-      duration: 0.3,
-      scrollTrigger: {
-        toggleActions: 'play play reverse reverse',
-        trigger: '.main-visual .visual',
-        start: 'center center',
-        end: '+=50%',
-      },
-    });
-  };
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: '.main-visual .visual',
+          start: 'top top',
+          end: '+=100%',
+          scrub: 1,
+        },
+      })
+      .from('.main-visual .txt', {
+        autoAlpha: 0,
+        yPercent: 100,
+      });
+  }
 
   function imgTxtSection() {
     gsap.utils.toArray('.scroll-img-txt li').forEach((el) => {
       let data = el.getAttribute('data-offset') || 0;
       let img = el.querySelector('img') || false;
 
-      if (!!img) {
+      !!img &&
         gsap.from(img, {
-          yPercent: data,
+          y: `${data}%`,
           scrollTrigger: {
             trigger: '.scroll-img-txt',
             start: 'top center',
@@ -170,6 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
           },
         });
 
+      !!img &&
         gsap.from(img, {
           scale: 1.1,
           scrollTrigger: {
@@ -180,7 +211,6 @@ document.addEventListener('DOMContentLoaded', function () {
             toggleActions: 'play pause resume reverse',
           },
         });
-      }
     });
   }
 
@@ -241,6 +271,7 @@ document.addEventListener('DOMContentLoaded', function () {
         stagger: 0.3,
       });
   }
+
   function changeBackColor() {
     //배경색 변경
     gsap.utils.toArray('.black-to-white').forEach((section, i) => {
@@ -251,8 +282,8 @@ document.addEventListener('DOMContentLoaded', function () {
           scrub: 0.1,
 
           //start 위치에 따라 달라지니 콘솔로 체크
-          onEnter: colorChange().white,
-          onLeaveBack: colorChange().black,
+          onEnter: colorChange.white,
+          onLeaveBack: colorChange.black,
 
           // onEnter: () => {
           //   console.log('onEnter');
@@ -277,8 +308,8 @@ document.addEventListener('DOMContentLoaded', function () {
           start: 'top top',
           scrub: 0.1,
           //start 위치에 따라 달라지니 콘솔로 체크
-          onLeave: colorChange().black,
-          onLeaveBack: colorChange().white,
+          onLeave: colorChange.black,
+          onLeaveBack: colorChange.white,
         },
       });
     });
@@ -438,8 +469,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  visual();
-  visualScroll();
+  mainVisual();
   imgTxtSection();
   wideSection();
   horizonSection();
@@ -450,4 +480,6 @@ document.addEventListener('DOMContentLoaded', function () {
   formSection();
   floatButtonSection();
   navSection();
+
+  gsap.ticker.fps(-1);
 });
