@@ -10,6 +10,11 @@ footer {
   src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-ultralight-webfont.woff');
 }
 
+html {
+  font-size: 10px;
+  font-size: 62.5%;
+}
+
 body {
   font-family: 'Pretendard Variable', sans-serif;
 }
@@ -89,7 +94,7 @@ body.fix {
 
 .lighting-header nav .lang a,
 .lighting-header nav .lang p {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 500;
   text-align: left;
   color: #fff;
@@ -116,7 +121,7 @@ body.fix {
 
 .lighting-header nav .lang a i,
 .lighting-header nav .lang p i {
-  font-size: 20px;
+  font-size: 2rem;
   text-align: left;
   color: #fff;
   margin-left: 10px;
@@ -176,7 +181,7 @@ body.fix {
 }
 
 .lighting-header nav .shop-btn {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 500;
   text-align: left;
   color: #fff;
@@ -199,17 +204,18 @@ body.fix {
 
 .lighting-wrap .common-txt.min {
   width: 760px;
+  max-width: 100%;
 }
 
 .lighting-wrap .common-txt h3 {
-  font-size: 46px;
+  font-size: 4.6rem;
   font-weight: 100;
   line-height: 1.43;
   letter-spacing: -1.84px;
 }
 
 .lighting-wrap .common-txt p {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 300;
   line-height: 1.67;
   letter-spacing: -0.72px;
@@ -226,7 +232,7 @@ body.fix {
 
 .lighting-wrap .common-txt .tags i {
   opacity: 0.5;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 300;
   line-height: 1.88;
   letter-spacing: -0.64px;
@@ -237,6 +243,7 @@ body.fix {
   width: 1520px;
   margin-right: auto;
   margin-left: auto;
+  max-width: 100%;
 }
 
 .main-visual {
@@ -275,7 +282,7 @@ body.fix {
 }
 
 .main-visual .visual .tit p {
-  font-size: 120px;
+  font-size: 12rem;
   font-weight: 200;
   line-height: 1;
   letter-spacing: -2.4px;
@@ -290,6 +297,7 @@ body.fix {
   bottom: 4.63vh;
   right: 10.417vw;
   z-index: 2;
+  width: 120px;
 }
 
 .main-visual .txt {
@@ -315,7 +323,7 @@ body.fix {
 }
 
 .main-visual .txt h2 {
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 300;
   letter-spacing: -0.8px;
   margin-bottom: 20px;
@@ -339,7 +347,7 @@ body.fix {
 .main-visual .txt ul li {
   padding: 30px 0;
   border-top: 1px solid #fff;
-  font-size: 70px;
+  font-size: 7rem;
   font-weight: 100;
   letter-spacing: -2.8px;
 }
@@ -377,15 +385,14 @@ body.fix {
 }
 
 .scroll-img-txt ul {
-  display: -ms-grid;
-  display: grid;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: start;
-  -ms-grid-columns: (1fr) [2];
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
-
+.scroll-img-txt ul .common-txt.min {
+  width: 760px;
+  max-width: 100%;
+}
 .scroll-img-txt ul::after {
   display: none;
 }
@@ -398,9 +405,6 @@ body.fix {
   width: 100%;
 }
 
-/* .scroll-img-txt ul li{
-    opacity: 0;
-} */
 .scroll-img-txt ul li.fadein-img {
   background: url('../../_images/scroll-img-1.jpg');
   background-size: cover;
@@ -421,21 +425,21 @@ body.fix {
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1 / span 2;
-  width: 1000px;
+  width: 52.083vw;
 }
 
 .scroll-img-txt ul li:nth-child(2),
 .scroll-img-txt ul li:nth-child(3) {
-  margin-top: 350px;
+  margin-top: 18.229vw;
 }
 
 .scroll-img-txt ul li:nth-child(3) {
-  width: 480px;
+  width: 25vw;
 }
 
 .scroll-img-txt ul li:nth-child(4) {
   margin-top: 100px;
-  width: 590px;
+  width: 30.729vw;
 }
 
 .scroll-img-txt ul li:nth-child(5) {
@@ -443,17 +447,14 @@ body.fix {
 }
 
 .scroll-img-txt ul li:nth-child(6) {
-  width: 656px;
+  width: 34.166vw;
   -ms-grid-column: 1;
   -ms-grid-column-span: 2;
   grid-column: 1 / span 2;
 }
 
-.scroll-img-txt ul li:nth-child(3),
-.scroll-img-txt ul li:nth-child(5),
 .scroll-img-txt ul li:nth-child(6) {
-  -ms-grid-column-align: end;
-  justify-self: end;
+  margin-left: auto;
 }
 
 .scroll-img-txt ul li:nth-child(3) .common-txt {
@@ -637,7 +638,7 @@ body.fix {
 
 .grid-img article .txt h4 {
   margin-bottom: 20px;
-  font-size: 24px;
+  font-size: 2.4rem;
   font-weight: 600;
   line-height: 1.25;
   letter-spacing: -0.96px;
@@ -646,7 +647,7 @@ body.fix {
 .grid-img article .txt p {
   opacity: 0.8;
   font-family: Pretendard;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 300;
   line-height: 1.67;
   letter-spacing: -0.72px;
@@ -722,7 +723,7 @@ body.fix {
   width: 110px;
   height: 36px;
   border-radius: 17.5px;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 600;
   line-height: 1.67;
   letter-spacing: -0.72px;
@@ -775,14 +776,14 @@ body.fix {
 }
 
 .grid-img article .grid .btm li b {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 600;
   letter-spacing: -0.72px;
   display: block;
 }
 
 .grid-img article .grid .btm li p {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 300;
   letter-spacing: -0.72px;
   text-align: center;
@@ -822,7 +823,9 @@ body.fix {
 .img-slider .arws::after {
   display: none;
 }
-
+.img-slider .swiper-slide {
+  width: 920px;
+}
 .img-slider .arws li {
   pointer-events: auto;
   cursor: pointer;
@@ -850,7 +853,7 @@ body.fix {
 }
 
 .form-wrap .email-form .tit h4 {
-  font-size: 46px;
+  font-size: 4.6rem;
   font-weight: 100;
   line-height: 1.43;
   letter-spacing: -1.84px;
@@ -863,7 +866,7 @@ body.fix {
 
 .form-wrap .email-form .tit p {
   margin-top: 24px;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 300;
   line-height: 1.67;
   letter-spacing: -0.72px;
@@ -881,7 +884,7 @@ body.fix {
 }
 
 .form-wrap .email-form .form .input label {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 300;
   line-height: 1.67;
   letter-spacing: -0.72px;
@@ -891,7 +894,7 @@ body.fix {
 }
 
 .form-wrap .email-form .form .input input::-webkit-input-placeholder {
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 300;
   line-height: 1;
   letter-spacing: -0.8px;
@@ -899,7 +902,7 @@ body.fix {
 }
 
 .form-wrap .email-form .form .input input::-moz-placeholder {
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 300;
   line-height: 1;
   letter-spacing: -0.8px;
@@ -907,7 +910,7 @@ body.fix {
 }
 
 .form-wrap .email-form .form .input input:-ms-input-placeholder {
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 300;
   line-height: 1;
   letter-spacing: -0.8px;
@@ -915,7 +918,7 @@ body.fix {
 }
 
 .form-wrap .email-form .form .input input::-ms-input-placeholder {
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 300;
   line-height: 1;
   letter-spacing: -0.8px;
@@ -924,7 +927,7 @@ body.fix {
 
 .form-wrap .email-form .form .input input,
 .form-wrap .email-form .form .input input::placeholder {
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 300;
   line-height: 1;
   letter-spacing: -0.8px;
@@ -996,7 +999,7 @@ body.fix {
 }
 
 .form-wrap .email-form .form .grid .check-box .check i {
-  font-size: 20px;
+  font-size: 2rem;
   width: 100%;
   height: 100%;
   color: transparent;
@@ -1008,7 +1011,7 @@ body.fix {
 }
 
 .form-wrap .email-form .form .grid .check-box p {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 300;
   line-height: 1.67;
   letter-spacing: -0.72px;
@@ -1025,7 +1028,7 @@ body.fix {
 }
 
 .form-wrap .email-form .form .grid .toggle-box p {
-  font-size: 15px;
+  font-size: 1.5rem;
   font-weight: 300;
   line-height: 1.6;
   color: #555;
@@ -1035,7 +1038,7 @@ body.fix {
   margin-top: 40px;
   border-radius: 8px;
   background-color: #000;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 300;
   line-height: 1.5;
   letter-spacing: -0.8px;
@@ -1111,4 +1114,22 @@ body.fix {
 
 .float-btns li.top-btn svg path {
   stroke: #fff;
+}
+
+@media (max-width: 1600px) {
+  .lighting-wrap .inner {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+  .main-visual .visual .tit {
+    left: 5vw;
+    bottom: 20vh;
+  }
+  .main-visual .visual .ico {
+    width: 90px;
+    right: 5vw;
+  }
+}
+
+@media (max-width: 1400px) {
 }

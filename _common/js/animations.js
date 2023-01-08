@@ -157,7 +157,21 @@ document.addEventListener('DOMContentLoaded', function () {
     gsap.utils.toArray('.scroll-img-txt li').forEach((el) => {
       let data = el.getAttribute('data-offset') || 0;
       let img = el.querySelector('img') || false;
+      let txt = el.querySelector('.common-txt') || false;
+      console.log(txt);
 
+      if (!!txt) {
+        gsap.from(txt, {
+          yPercent: data,
+          scrollTrigger: {
+            trigger: '.scroll-img-txt',
+            start: 'top center',
+            endTrigger: '.scroll-wide',
+            end: 'bottom bottom',
+            scrub: 3,
+          },
+        });
+      }
       if (!!img) {
         gsap.from(img, {
           yPercent: data,
@@ -338,12 +352,22 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     loop: true,
     spaceBetween: 180,
-    slidesPerView: 3,
+    slidesPerView: 'auto',
     centeredSlides: true,
     roundLengths: true,
     loopAdditionalSlides: 30,
     autoplay: {
       delay: 3000,
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 4,
+        spaceBetween: 40,
+      },
+      1024: {
+        slidesPerView: 5,
+        spaceBetween: 50,
+      },
     },
   });
 
