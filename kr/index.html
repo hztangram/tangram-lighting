@@ -1,447 +1,489 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<!-- https://greensock.com/3-8/#preventOverlapsAndFastScrollEnd -->
 
-    <link rel="stylesheet" href="../_common/css/reset.css" />
-    <link rel="stylesheet" href="../_common/css/style.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 
-    <!-- <script async src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <link rel="stylesheet" href="../_common/css/reset.css" />
+  <link rel="stylesheet" href="../_common/css/style.css" />
+
+  <!-- <script async src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js"></script>
     <script async src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script> -->
 
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/EasePack.min.js"></script>
     <script src="https://unpkg.com/smooth-scrollbar@latest/dist/smooth-scrollbar.js"></script> -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js"></script>
 
-    <script async src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script async src="../_common/js/animations.js"></script>
-  </head>
 
-  <body>
-    <div class="lighting-wrap">
-      <header class="lighting-header">
-        <h1 class="logo">
-          <a href="./">
-            <svg width="128" height="24" viewBox="0 0 128 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g clip-path="url(#clip0_1357_183)">
-                <path d="M51.7993 0H44.0015V2.00094H51.7993V24H53.8003V2.00094H61.601V0H53.8003H51.7993Z" fill="white" />
-                <path d="M82.0001 11.0009H68.3998V0H66.4016V11.0009V12.9991V24H68.3998V12.9991H82.0001V24H84.0011V12.9991V11.0009V0H82.0001V11.0009Z" fill="white" />
-                <path
-                  d="M88.8018 0V2.00094V11.0009V12.9991V21.9991V24H90.7999H103.201V21.9991H90.7999V12.9991H103.201V11.0009H90.7999V2.00094H103.201V0H90.7999H88.8018Z"
-                  fill="white"
-                />
-                <path d="M24.7991 0V2.00094V11.0009V12.9991V21.9991V24H26.8H39.201V21.9991H26.8V12.9991H39.201V11.0009H26.8V2.00094H39.201V0H26.8H24.7991Z" fill="white" />
-                <path
-                  d="M8.86467 0L0 24H2.27191L6.33594 12.9991H13.6653L17.7293 24H20.0012L11.1366 0H8.86467ZM7.07536 11.0009L10.002 3.07902L12.9287 11.0009H7.07536Z"
-                  fill="white"
-                />
-                <path
-                  d="M121.294 13.16L121.088 12.827C123.71 11.9606 125.601 9.49117 125.601 6.58148C125.601 2.94649 122.655 0.00292969 119.022 0.00292969H108.001V24.0029H110.002V13.1629H116.2H119.022L125.728 24.0029H128L121.294 13.1629V13.16ZM119.022 11.1591H110.002V2.00105H119.022C121.551 2.00105 123.603 4.05279 123.603 6.58148C123.603 9.11017 121.551 11.1619 119.022 11.1619V11.1591Z"
-                  fill="white"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_1357_183">
-                  <rect width="128" height="24" fill="white" />
-                </clipPath>
-              </defs>
-            </svg>
-          </a>
-        </h1>
-        <nav>
-          <div class="lang">
-            <p>KR<i class="xi-caret-down-min"></i></p>
-            <ul>
-              <li class="active">
-                <a href="">KR<i class="xi-check-min"></i></a>
-              </li>
-              <li>
-                <a href="">EN<i class="xi-check-min"></i></a>
-              </li>
-            </ul>
-          </div>
-          <a href="https://tangramshop.kr/" target="_blank" class="shop-btn">지금 구입하기</a>
-        </nav>
-      </header>
-      <div class="overwrap">
-        <img src="../_images/main-visual-overwrap1.jpg" alt="" />
-        <img src="../_images/main-visual-overwrap2.svg" alt="" />
-      </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"
+    integrity="sha512-8E3KZoPoZCD+1dgfqhPbejQBnQfBXe8FuwL4z/c8sTrgeDMFEnoyTlH3obB4/fV+6Sg0a0XF+L/6xS4Xx1fUEg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-      <section class="main-visual">
-        <div class="pin">
-          <div class="visual horizon_box">
-            <img src="../_images/main-visual.jpg" alt="" />
-            <div class="tit">
-              <p>fill your space</p>
-              <p>with inspiration</p>
-            </div>
-            <span class="ico"><img src="../_images/scroll-d-ico.svg" alt="" /></span>
-          </div>
-          <div class="txt">
-            <div class="inner">
-              <h2>모션 인식 데스크 램프 :<img src="../_images/lighting-logo-w.svg" alt="" /></h2>
-              <ul>
-                <li>태양을 닮은 빛으로 만든</li>
-                <li>데스크 램프의 혁신</li>
-              </ul>
-            </div>
-          </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/debug.addIndicators.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js"></script>
+
+  <script async src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script async src="../_common/js/animations.js"></script>
+</head>
+
+<body>
+  <div class="lighting-wrap">
+    <header class="lighting-header">
+      <h1 class="logo">
+        <a href="./">
+          <svg width="128" height="24" viewBox="0 0 128 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_1357_183)">
+              <path d="M51.7993 0H44.0015V2.00094H51.7993V24H53.8003V2.00094H61.601V0H53.8003H51.7993Z" fill="white" />
+              <path
+                d="M82.0001 11.0009H68.3998V0H66.4016V11.0009V12.9991V24H68.3998V12.9991H82.0001V24H84.0011V12.9991V11.0009V0H82.0001V11.0009Z"
+                fill="white" />
+              <path
+                d="M88.8018 0V2.00094V11.0009V12.9991V21.9991V24H90.7999H103.201V21.9991H90.7999V12.9991H103.201V11.0009H90.7999V2.00094H103.201V0H90.7999H88.8018Z"
+                fill="white" />
+              <path
+                d="M24.7991 0V2.00094V11.0009V12.9991V21.9991V24H26.8H39.201V21.9991H26.8V12.9991H39.201V11.0009H26.8V2.00094H39.201V0H26.8H24.7991Z"
+                fill="white" />
+              <path
+                d="M8.86467 0L0 24H2.27191L6.33594 12.9991H13.6653L17.7293 24H20.0012L11.1366 0H8.86467ZM7.07536 11.0009L10.002 3.07902L12.9287 11.0009H7.07536Z"
+                fill="white" />
+              <path
+                d="M121.294 13.16L121.088 12.827C123.71 11.9606 125.601 9.49117 125.601 6.58148C125.601 2.94649 122.655 0.00292969 119.022 0.00292969H108.001V24.0029H110.002V13.1629H116.2H119.022L125.728 24.0029H128L121.294 13.1629V13.16ZM119.022 11.1591H110.002V2.00105H119.022C121.551 2.00105 123.603 4.05279 123.603 6.58148C123.603 9.11017 121.551 11.1619 119.022 11.1619V11.1591Z"
+                fill="white" />
+            </g>
+            <defs>
+              <clipPath id="clip0_1357_183">
+                <rect width="128" height="24" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </a>
+      </h1>
+      <nav>
+        <div class="lang">
+          <p>KR<i class="xi-caret-down-min"></i></p>
+          <ul>
+            <li class="active">
+              <a href="">KR<i class="xi-check-min"></i></a>
+            </li>
+            <li>
+              <a href="">EN<i class="xi-check-min"></i></a>
+            </li>
+          </ul>
         </div>
-      </section>
+        <a href="https://tangramshop.kr/" target="_blank" class="shop-btn">지금 구입하기</a>
+      </nav>
+    </header>
+    <div class="overwrap">
+      <img src="../_images/main-visual-overwrap1.svg" alt="" />
+      <img src="../_images/main-visual-overwrap2.jpg" alt="" />
+    </div>
 
-      <section class="scroll-img-txt">
-        <ul class="inner">
-          <li data-offset="20"><img src="../_images/scroll-img-1.jpg" alt="" /></li>
-          <li data-offset="60">
+
+
+    <section class="main-visual">
+      <div class="visual item">
+        <!-- <img src="../_images/main-visual.jpg" alt="" /> -->
+        <div class="tit">
+          <p>fill your space</p>
+          <p>with inspiration</p>
+        </div>
+        <span class="ico"><img src="../_images/scroll-d-ico.svg" alt="" /></span>
+      </div>
+      <div class="txt item">
+        <div class="inner">
+          <h2>모션 인식 데스크 램프 :<img src="../_images/lighting-logo-w.svg" alt="" /></h2>
+          <ul>
+            <li>태양을 닮은 빛으로 만든</li>
+            <li>데스크 램프의 혁신</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="scroll-img-txt">
+      <ul class="inner">
+        <li data-scrub="0.1">
+          <div class="inside"><img src="../_images/scroll-img-1.jpg" alt="" /></div>
+        </li>
+        <li data-scrub="0.1">
+          <div class="inside">
             <div class="common-txt min">
               <h3>영감으로 공간을 채우다</h3>
               <p>데스크 공간을 새로운 영감을 불어넣고 가치를 창출하는 공간으로. <br />빛으로 공간과 업무의 완성도를 높입니다.</p>
             </div>
-          </li>
-          <li data-offset="50"><img src="../_images/scroll-img-2.jpg" alt="" /></li>
-          <li data-offset="60"><img src="../_images/scroll-img-3.jpg" alt="" /></li>
-          <li data-offset="80">
+          </div>
+        </li>
+        <li data-scrub="0.9">
+          <div class="inside"><img src="../_images/scroll-img-2.jpg" alt="" /></div>
+        </li>
+        <li data-scrub="0.5">
+          <div class="inside"><img src="../_images/scroll-img-3.jpg" alt="" /></div>
+        </li>
+        <li data-scrub="0.1">
+          <div class="inside">
             <div class="common-txt min">
               <h3>태양을 닮은 빛</h3>
               <p>
-                태양광에 가장 가까운 CRI 95% SunLike LED를 사용해 사물 본연의 컬러를 더욱 선명하게 보여줍니다. <br />눈을 보호하는 플리커 프리(Flicker-free) 기술이 적용되어 장시간
+                태양광에 가장 가까운 CRI 95% SunLike LED를 사용해 사물 본연의 컬러를 더욱 선명하게 보여줍니다. <br />눈을 보호하는 플리커 프리(Flicker-free) 기술이
+                적용되어
+                장시간
                 사용에도 눈이 편안합니다.
               </p>
             </div>
-          </li>
-          <li data-offset="90"><img src="../_images/scroll-img-4.jpg" alt="" /></li>
-          <li class="change-color black-to-white"></li>
-        </ul>
-      </section>
-
-      <section class="scroll-wide mt-300">
-        <div class="img"><img src="../_images/scroll-wide-img.jpg" alt="" /></div>
-        <div class="common-txt inner">
-          <h3>확장형 디자인으로 더 넓게</h3>
-          <p>
-            방해받지 않고 작업에 몰입할 수 있도록 확장형 디자인을 구현하여 넓은 시야를 확보했습니다. <br />낮에는 데스크 램프로 밤에는 무드등으로 원하는 각도로 자유롭게 사용할 수
-            있습니다.
-          </p>
-        </div>
-      </section>
-
-      <section class="scroll-horizon mt-300">
-        <div class="pin">
-          <div class="img"><img src="../_images/scroll-horizon-img.jpg" alt="" /></div>
-          <div class="common-txt min">
-            <h3>선명하고 감각적인 컬러</h3>
-            <p>전체 알루미늄 바디에 아노다이징을 사용한 <br />선명하고 감각적인 네 가지 컬러를 만나보세요.</p>
-            <div class="tags"><i>#로즈골드</i><i>#레이싱그린</i><i>#스칼렛레드</i><i>#스페이스그레이</i></div>
           </div>
-        </div>
-      </section>
-
-      <section class="grid-center inner mt-300">
-        <div class="left">
-          <img src="../_images/lighting-bottom-vid.gif" alt="" />
-        </div>
-        <div class="common-txt min right">
-          <h3>안정감 있는 바디</h3>
-          <p>
-            알루미늄 바디로 완벽한 내구성, 변치않는 아름다움의 균형을 자랑하며, 흔들리지 않는 무게감으로 안정감 있게 사용할 수 있습니다. 램프 바디 전체를 알루미늄 소재로 만들어
-            LED의 발열을 효율적으로 분산 시켜 줍니다.
-          </p>
-        </div>
-      </section>
-
-      <section class="vid-content mt-300">
-        <i class="change-color white-to-black"></i>
-        <div class="vid">
-          <img src="../_images/full-cont-vid.gif" alt="" />
-        </div>
-        <div class="inner">
-          <div class="common-txt min">
-            <h3>누구도 경험하지 못한 특별한 사용성</h3>
-            <p>
-              적외선 센서를 사용한 모션 인식으로 전원, 밝기, 색온도 조절 까지. <br />휴식을 취할 때도, 업무에 집중할 때도 상황에 맞는 색온도와 밝기로 다채로운 공간을 연출해보세요.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="grid-img inner mt-300">
-        <article class="full">
-          <!-- <img src="../_images/grid-img1-1.gif" alt=""> -->
-        </article>
-        <article>
-          <div class="txt">
-            <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg gery">
-              <g opacity="0.2" clip-path="url(#clip0_1377_308)">
-                <path d="M14.074 15.8792L22 13L14.074 10.1208L11 0L7.92599 10.1208L0 13L7.92599 15.8792L11 26L14.074 15.8792Z" fill="white" />
-              </g>
-              <defs>
-                <clipPath id="clip0_1377_308">
-                  <rect width="22" height="26" fill="white" />
-                </clipPath>
-              </defs>
-            </svg>
-            <h4>자유로운 각도 조절</h4>
-            <p>낮에는 데스크 램프로, 밤에는 무드등으로. 원하는 각도로 자유롭게 조절해서 사용할 수 있습니다.</p>
-          </div>
-          <div class="img grid-2-1">
-            <img src="../_images/grid-img2-1.jpg" alt="" />
-            <!-- <img src="../_images/grid-img2-2.gif" alt=""> -->
-          </div>
-        </article>
-        <article>
-          <div class="txt">
-            <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg gery">
-              <g opacity="0.2" clip-path="url(#clip0_1377_308)">
-                <path d="M14.074 15.8792L22 13L14.074 10.1208L11 0L7.92599 10.1208L0 13L7.92599 15.8792L11 26L14.074 15.8792Z" fill="white" />
-              </g>
-              <defs>
-                <clipPath id="clip0_1377_308">
-                  <rect width="22" height="26" fill="white" />
-                </clipPath>
-              </defs>
-            </svg>
-            <h4>색온도에 따른 다채로운 공간 연출</h4>
-            <p>상황에 맞는 색온도로 학습과 업무의 능률을 높일 수 있습니다.</p>
-          </div>
-          <div class="grid grid-3">
-            <ul class="top">
-              <li>휴식</li>
-              <li>일상</li>
-              <li>업무·학습</li>
-            </ul>
-            <i class="line"></i>
-            <ul class="btm">
-              <li>
-                <b>전구색</b>
-                <p>3,000K</p>
-              </li>
-              <li>
-                <b>주백색</b>
-                <p>4,500K</p>
-              </li>
-              <li>
-                <b>주광색</b>
-                <p>5,700K</p>
-              </li>
-            </ul>
-            <div class="img">
-              <img src="../_images/grid-img3-1.jpg" alt="" />
-              <img src="../_images/grid-img3-2.jpg" alt="" />
-              <img src="../_images/grid-img3-3.jpg" alt="" />
-            </div>
-          </div>
-        </article>
-        <article>
-          <div class="txt">
-            <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg gery">
-              <g opacity="0.2" clip-path="url(#clip0_1377_308)">
-                <path d="M14.074 15.8792L22 13L14.074 10.1208L11 0L7.92599 10.1208L0 13L7.92599 15.8792L11 26L14.074 15.8792Z" fill="white" />
-              </g>
-              <defs>
-                <clipPath id="clip0_1377_308">
-                  <rect width="22" height="26" fill="white" />
-                </clipPath>
-              </defs>
-            </svg>
-            <h4>눈을 보호하는 플리커 프리 LED</h4>
-            <p>플리커 프리(Flicker-free) 기술이 적용되어 장시간 노출에도 눈이 편안합니다.</p>
-          </div>
-          <div class="grid grid-2">
-            <ul class="btm">
-              <li>
-                <p>플리커 현상이 있는</p>
-                <b>일반 LED</b>
-              </li>
-              <li>
-                <p>플리커 프리가 적용된</p>
-                <b>데스크 램프 이더</b>
-              </li>
-            </ul>
-            <div class="img">
-              <img src="../_images/grid-img4-1.gif" alt="" />
-              <img src="../_images/grid-img4-2.jpg" alt="" />
-            </div>
-          </div>
-        </article>
-        <article>
-          <div class="txt">
-            <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg gery">
-              <g opacity="0.2" clip-path="url(#clip0_1377_308)">
-                <path d="M14.074 15.8792L22 13L14.074 10.1208L11 0L7.92599 10.1208L0 13L7.92599 15.8792L11 26L14.074 15.8792Z" fill="white" />
-              </g>
-              <defs>
-                <clipPath id="clip0_1377_308">
-                  <rect width="22" height="26" fill="white" />
-                </clipPath>
-              </defs>
-            </svg>
-            <h4>본연의 컬러를 더욱 선명하게 보여주는 SunLike LED</h4>
-            <p>프랑스 그레뱅 파리 뮤지엄, 이탈리아 폼페이 벽화 조명 등 세계적인 대형 뮤지엄에서도 SunLike LED를 사용하고 있습니다.</p>
-          </div>
-          <div class="grid grid-2">
-            <ul class="btm">
-              <li>
-                <b>일반 LED 사용시</b>
-              </li>
-              <li>
-                <b>SunLike LED 사용시</b>
-              </li>
-            </ul>
-            <div class="img">
-              <img src="../_images/grid-img5-1.jpg" alt="" />
-              <img src="../_images/grid-img5-2.jpg" alt="" />
-              <svg width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g opacity="0.4">
-                  <path d="M0 15.001C0 15.001 13 15.001 13 30.001" stroke="white" stroke-miterlimit="10" />
-                  <path d="M26 15C26 15 13 15 13 30V0" stroke="white" stroke-miterlimit="10" />
-                </g>
-              </svg>
-              <svg width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g opacity="0.4">
-                  <path d="M0 15.001C0 15.001 13 15.001 13 30.001" stroke="white" stroke-miterlimit="10" />
-                  <path d="M26 15C26 15 13 15 13 30V0" stroke="white" stroke-miterlimit="10" />
-                </g>
-              </svg>
-              <img src="../_images/grid-img5-3.jpg" alt="" />
-              <img src="../_images/grid-img5-4.jpg" alt="" />
-            </div>
-          </div>
-        </article>
-      </section>
-      <section class="img-slider mt-300">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="../_images/slider1.jpg" alt="" /></div>
-          <div class="swiper-slide"><img src="../_images/slider2.jpg" alt="" /></div>
-          <div class="swiper-slide"><img src="../_images/slider3.jpg" alt="" /></div>
-          <div class="swiper-slide"><img src="../_images/slider4.jpg" alt="" /></div>
-          <div class="swiper-slide"><img src="../_images/slider5.jpg" alt="" /></div>
-          <div class="swiper-slide"><img src="../_images/slider6.jpg" alt="" /></div>
-          <div class="swiper-slide"><img src="../_images/slider7.jpg" alt="" /></div>
-          <div class="swiper-slide"><img src="../_images/slider8.jpg" alt="" /></div>
-        </div>
-        <ul class="arws">
-          <li class="prev">
-            <svg width="52" height="45" viewBox="0 0 52 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g opacity="0.5">
-                <path d="M26 0C26 0 26 22.4997 8.17844e-07 22.4997" stroke="white" stroke-miterlimit="10" />
-                <path d="M26 44.9992C26 44.9992 26 22.4995 1.19209e-07 22.4995L52 22.4995" stroke="white" stroke-miterlimit="10" />
-              </g>
-            </svg>
-          </li>
-          <li class="next">
-            <svg width="52" height="45" viewBox="0 0 52 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g opacity="0.5">
-                <path d="M26 45C26 45 26 22.5003 52 22.5003" stroke="white" stroke-miterlimit="10" />
-                <path d="M26 0.000270033C26 0.000270033 26 22.5 52 22.5L0 22.5" stroke="white" stroke-miterlimit="10" />
-              </g>
-            </svg>
-          </li>
-        </ul>
-      </section>
-      <i class="change-color black-to-white"></i>
-
-      <section class="form-wrap mt-300 inner">
-        <img src="../_images/email-img.png" alt="" />
-        <ul class="email-form">
-          <li class="tit">
-            <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g clip-path="url(#clip0_1377_349)">
-                <path d="M14.074 15.8792L22 13L14.074 10.1208L11 0L7.92599 10.1208L0 13L7.92599 15.8792L11 26L14.074 15.8792Z" fill="black" />
-              </g>
-              <defs>
-                <clipPath id="clip0_1377_349">
-                  <rect width="22" height="26" fill="white" />
-                </clipPath>
-              </defs>
-            </svg>
-
-            <h4>런칭 알림 신청하고<br /><b>할인 쿠폰 받기</b></h4>
-            <p>탱그램라이팅 모션 인식 데스크 램프 이더(AETHER)가 런칭되면<br />바로 사용할 수 있는 할인 쿠폰을 보내드립니다.</p>
-          </li>
-          <li class="form">
-            <div class="input">
-              <label for="email">이메일 주소</label>
-              <input type="email" id="email" placeholder="이메일 주소를 입력해주세요." />
-            </div>
-            <div class="grid">
-              <div class="check-box">
-                <div class="check">
-                  <input type="checkbox" id="chk" />
-                  <i class="xi-check-min"></i>
-                </div>
-                <p>(필수) 개인정보 수집·이용 및 광고성 정보 수신에 동의합니다.</p>
-              </div>
-              <div class="toggle-box">
-                <p>
-                  새소식 및 이벤트 안내, 할인 쿠폰 발송 등을 위한 최소한의 개인정보를 수집하고 이용합니다. 수집된 정보는 발송 외 다른 목적으로 이용되지 않으며, 서비스가 종료되거나
-                  이용을 해지할 경우 즉시 파기됩니다.
-                </p>
-              </div>
-            </div>
-            <button>신청하기</button>
-          </li>
-        </ul>
-      </section>
-
-      <ul class="float-btns">
-        <li class="modal-btn">
-          <a href="">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M9.30268 17.1478C10.9476 17.1478 12.2401 16.5253 13.1801 15.2803C14.1201 14.0251 14.59 12.3246 14.59 10.1787C14.59 8.03276 14.1201 6.34236 13.1801 5.10745C12.2401 3.87253 10.9476 3.25508 9.30268 3.25508C7.65773 3.25508 6.36015 3.8776 5.40996 5.12263C4.46999 6.35754 4 8.04289 4 10.1787C4 12.3246 4.46999 14.0251 5.40996 15.2803C6.34994 16.5253 7.64751 17.1478 9.30268 17.1478ZM9.30268 15.0222C8.41379 15.0222 7.71903 14.6021 7.21839 13.7619C6.71775 12.9117 6.46743 11.7173 6.46743 10.1787C6.46743 8.67046 6.71775 7.49123 7.21839 6.64096C7.71903 5.79069 8.41379 5.36556 9.30268 5.36556C10.1814 5.36556 10.871 5.79069 11.3716 6.64096C11.8723 7.4811 12.1226 8.66034 12.1226 10.1787C12.1226 11.7173 11.8723 12.9117 11.3716 13.7619C10.8812 14.6021 10.1916 15.0222 9.30268 15.0222ZM26.7126 31.7542C28.3576 31.7542 29.6501 31.1266 30.59 29.8714C31.53 28.6264 32 26.936 32 24.8002C32 22.6543 31.53 20.9639 30.59 19.729C29.6501 18.484 28.3576 17.8614 26.7126 17.8614C25.0677 17.8614 23.7701 18.484 22.8199 19.729C21.8799 20.9639 21.41 22.6543 21.41 24.8002C21.41 26.9461 21.8799 28.6416 22.8199 29.8866C23.7599 31.1317 25.0575 31.7542 26.7126 31.7542ZM26.7126 29.6437C25.8238 29.6437 25.129 29.2186 24.6284 28.3683C24.1277 27.518 23.8774 26.3287 23.8774 24.8002C23.8774 23.2819 24.1277 22.1026 24.6284 21.2625C25.129 20.4122 25.8238 19.9871 26.7126 19.9871C27.5913 19.9871 28.281 20.4072 28.7816 21.2473C29.2822 22.0875 29.5326 23.2718 29.5326 24.8002C29.5326 26.3287 29.2822 27.518 28.7816 28.3683C28.2912 29.2186 27.6015 29.6437 26.7126 29.6437ZM8.19923 31.8149C8.48531 31.9769 8.80715 32.0325 9.16475 31.9819C9.53257 31.9313 9.83908 31.7339 10.0843 31.3898L28.092 5.01635C28.3576 4.64182 28.4342 4.28248 28.3218 3.93833C28.2197 3.58405 28.0255 3.32087 27.7395 3.1488C27.4738 3.00709 27.1673 2.9666 26.8199 3.02733C26.4828 3.08806 26.1814 3.30569 25.9157 3.68021L7.90805 29.9777C7.63218 30.3624 7.54023 30.7217 7.63218 31.0557C7.72414 31.3898 7.91315 31.6428 8.19923 31.8149Z"
-                fill="white"
-              />
-            </svg>
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M10.5751 34H26.4249C27.8424 34 28.9282 33.6285 29.6823 32.8855C30.4464 32.1425 30.8284 31.0483 30.8284 29.6031V20.229H30.934C31.5975 20.0865 32.1052 19.7557 32.4571 19.2366C32.819 18.7176 33 18.0712 33 17.2977V13.2824C33 12.3562 32.7537 11.6183 32.261 11.0687C31.7684 10.5191 31.0596 10.2443 30.1347 10.2443H27.0884C27.4906 9.84733 27.8022 9.37913 28.0234 8.83969C28.2446 8.29008 28.3552 7.69975 28.3552 7.0687C28.3552 6.08143 28.1189 5.20611 27.6464 4.44275C27.1839 3.67939 26.5556 3.08397 25.7613 2.65649C24.9771 2.21883 24.0974 2 23.1222 2C22.0666 2 21.1265 2.2799 20.3021 2.83969C19.4777 3.39949 18.8745 4.19338 18.4925 5.22137C18.1104 4.19338 17.5072 3.39949 16.6828 2.83969C15.8684 2.2799 14.9284 2 13.8627 2C12.8875 2 12.0028 2.21883 11.2085 2.65649C10.4243 3.08397 9.79598 3.67939 9.32345 4.44275C8.86098 5.20611 8.62975 6.08143 8.62975 7.0687C8.62975 7.69975 8.74034 8.29008 8.96152 8.83969C9.19275 9.37913 9.50945 9.84733 9.9116 10.2443H6.86531C5.98059 10.2443 5.28185 10.5191 4.76911 11.0687C4.25637 11.6183 4 12.3562 4 13.2824V17.2977C4 18.0712 4.17594 18.7176 4.52782 19.2366C4.8797 19.7557 5.38742 20.0865 6.05096 20.229H6.15653V29.6031C6.15653 31.0483 6.53354 32.1425 7.28757 32.8855C8.05166 33.6285 9.14751 34 10.5751 34ZM17.1503 31.7099H10.545C9.92165 31.7099 9.43907 31.5369 9.09724 31.1908C8.75542 30.8448 8.5845 30.3562 8.5845 29.7252V20.3359H17.1503V31.7099ZM19.8346 31.7099V20.3359H28.4004V29.7252C28.4004 30.3562 28.2295 30.8448 27.8877 31.1908C27.5559 31.5369 27.0733 31.7099 26.4399 31.7099H19.8346ZM17.1503 18.0305H7.48362C7.10158 18.0305 6.83013 17.9491 6.66927 17.7863C6.50841 17.6132 6.42798 17.3333 6.42798 16.9466V13.6183C6.42798 13.2316 6.50841 12.9567 6.66927 12.7939C6.83013 12.631 7.10158 12.5496 7.48362 12.5496H17.1503V18.0305ZM19.8346 18.0305V12.5496H29.5315C29.9034 12.5496 30.1699 12.631 30.3307 12.7939C30.4916 12.9567 30.572 13.2316 30.572 13.6183V16.9466C30.572 17.3333 30.4916 17.6132 30.3307 17.7863C30.1699 17.9491 29.9034 18.0305 29.5315 18.0305H19.8346ZM17.2558 10.2443H14.9033C13.7169 10.2443 12.792 9.94911 12.1284 9.35878C11.475 8.76845 11.1482 8.05089 11.1482 7.20611C11.1482 6.36132 11.4197 5.70992 11.9626 5.25191C12.5055 4.78372 13.1891 4.54962 14.0135 4.54962C14.9184 4.54962 15.6824 4.87532 16.3058 5.52672C16.9392 6.16794 17.2558 7.05344 17.2558 8.18321V10.2443ZM19.7291 10.2443V8.18321C19.7291 7.05344 20.0458 6.16794 20.6791 5.52672C21.3125 4.87532 22.0766 4.54962 22.9714 4.54962C23.8059 4.54962 24.4895 4.78372 25.0224 5.25191C25.5653 5.70992 25.8367 6.36132 25.8367 7.20611C25.8367 8.05089 25.5049 8.76845 24.8414 9.35878C24.1879 9.94911 23.268 10.2443 22.0816 10.2443H19.7291Z"
-                fill="white"
-              />
-            </svg>
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M20.0886 35C20.2905 35 20.4569 34.9335 20.5881 34.8005C20.7193 34.6778 20.805 34.509 20.8454 34.2942C21.0573 32.6165 21.2944 31.1998 21.5568 30.0438C21.8292 28.8879 22.1823 27.9366 22.6162 27.1898C23.0602 26.4431 23.6454 25.8498 24.3719 25.4099C25.0984 24.9598 26.0216 24.6069 27.1416 24.3512C28.2616 24.0954 29.644 23.8755 31.2886 23.6914C31.5005 23.6709 31.6721 23.5891 31.8032 23.4459C31.9344 23.3026 32 23.1287 32 22.9242C32 22.7298 31.9344 22.561 31.8032 22.4178C31.6721 22.2746 31.5005 22.1928 31.2886 22.1723C29.644 21.9882 28.2616 21.7682 27.1416 21.5125C26.0216 21.2568 25.0984 20.9038 24.3719 20.4537C23.6454 20.0037 23.0602 19.4052 22.6162 18.6585C22.1823 17.9117 21.8292 16.9655 21.5568 15.8198C21.2944 14.6639 21.0573 13.242 20.8454 11.5541C20.805 11.3496 20.7193 11.1859 20.5881 11.0631C20.4569 10.9301 20.2905 10.8637 20.0886 10.8637C19.8969 10.8637 19.7305 10.9301 19.5892 11.0631C19.458 11.1859 19.3773 11.3496 19.347 11.5541C19.1351 13.242 18.893 14.6639 18.6205 15.8198C18.3582 16.9655 18.005 17.9117 17.5611 18.6585C17.1171 19.4052 16.5319 20.0037 15.8054 20.4537C15.0789 20.9038 14.1557 21.2568 13.0357 21.5125C11.9157 21.7682 10.5384 21.9882 8.90378 22.1723C8.6818 22.1928 8.50523 22.2746 8.37405 22.4178C8.24288 22.561 8.1773 22.7298 8.1773 22.9242C8.1773 23.1287 8.24288 23.3026 8.37405 23.4459C8.50523 23.5891 8.6818 23.6709 8.90378 23.6914C10.5384 23.9062 11.9106 24.1517 13.0205 24.4279C14.1405 24.6938 15.0587 25.0468 15.7751 25.4866C16.5016 25.9265 17.0868 26.5147 17.5308 27.2512C17.9748 27.9877 18.3279 28.9237 18.5903 30.0592C18.8627 31.2049 19.115 32.6165 19.347 34.2942C19.3773 34.509 19.458 34.6778 19.5892 34.8005C19.7305 34.9335 19.8969 35 20.0886 35ZM9.82703 18.0294C9.96829 18.0294 10.0843 17.9833 10.1751 17.8913C10.2659 17.7992 10.3214 17.6867 10.3416 17.5537C10.4728 16.5308 10.609 15.7329 10.7503 15.16C10.8915 14.5872 11.1085 14.1575 11.4011 13.8711C11.7038 13.5745 12.1477 13.3494 12.733 13.196C13.3283 13.0323 14.1506 12.8482 15.2 12.6436C15.5027 12.5822 15.6541 12.4083 15.6541 12.1219C15.6541 11.9787 15.6086 11.861 15.5178 11.769C15.4371 11.6769 15.3312 11.6257 15.2 11.6155C14.1506 11.4621 13.3283 11.3138 12.733 11.1705C12.1377 11.0273 11.6886 10.8074 11.3859 10.5107C11.0933 10.2039 10.8764 9.75376 10.7351 9.16046C10.604 8.56715 10.4728 7.75391 10.3416 6.72074C10.3013 6.39339 10.1297 6.22972 9.82703 6.22972C9.52432 6.22972 9.35279 6.39851 9.31243 6.73608C9.19135 7.75902 9.06018 8.55692 8.91892 9.12977C8.77766 9.69239 8.55568 10.1169 8.25297 10.4033C7.95027 10.6898 7.50126 10.9148 6.90595 11.0785C6.31063 11.2319 5.49333 11.4109 4.45405 11.6155C4.15135 11.6667 4 11.8355 4 12.1219C4 12.4185 4.17153 12.5924 4.51459 12.6436C5.54378 12.8175 6.35099 12.9811 6.93622 13.1346C7.53153 13.288 7.9755 13.5131 8.26811 13.8097C8.57081 14.0962 8.78775 14.5309 8.91892 15.114C9.06018 15.6971 9.19135 16.5001 9.31243 17.523C9.35279 17.8606 9.52432 18.0294 9.82703 18.0294ZM17.1524 7.4726C17.3341 7.4726 17.445 7.37031 17.4854 7.16572C17.5964 6.54172 17.6973 6.05071 17.7881 5.69268C17.8789 5.33465 18.0101 5.06357 18.1816 4.87944C18.3632 4.68508 18.6357 4.53164 18.9989 4.41911C19.3622 4.30659 19.8717 4.19407 20.5276 4.08154C20.7294 4.04063 20.8303 3.92299 20.8303 3.72863C20.8303 3.5445 20.7294 3.43197 20.5276 3.39106C19.8717 3.2683 19.3622 3.15578 18.9989 3.05349C18.6357 2.94096 18.3632 2.79263 18.1816 2.60851C18.0101 2.41415 17.8789 2.13795 17.7881 1.77992C17.6973 1.42189 17.5964 0.930878 17.4854 0.306883C17.445 0.102294 17.3341 0 17.1524 0C16.9607 0 16.8497 0.102294 16.8195 0.306883C16.6984 0.930878 16.5924 1.42189 16.5016 1.77992C16.4209 2.13795 16.2897 2.41415 16.1081 2.60851C15.9366 2.79263 15.6692 2.94096 15.3059 3.05349C14.9427 3.15578 14.4332 3.2683 13.7773 3.39106C13.5755 3.43197 13.4746 3.5445 13.4746 3.72863C13.4746 3.92299 13.5755 4.04063 13.7773 4.08154C14.4332 4.19407 14.9427 4.30659 15.3059 4.41911C15.6692 4.53164 15.9366 4.68508 16.1081 4.87944C16.2897 5.06357 16.4209 5.33465 16.5016 5.69268C16.5924 6.05071 16.6984 6.54172 16.8195 7.16572C16.8497 7.37031 16.9607 7.4726 17.1524 7.4726Z"
-                fill="white"
-              />
-            </svg>
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M4 26.5189C4 27.0868 4.20491 27.5411 4.61473 27.8819C5.02455 28.2227 5.59318 28.393 6.32061 28.393H12.806C12.847 29.3946 13.1134 30.3188 13.6052 31.1655C14.1072 32.0123 14.7783 32.6938 15.6184 33.2101C16.4586 33.7367 17.4165 34 18.4923 34C19.5783 34 20.5414 33.7419 21.3816 33.2256C22.2217 32.7093 22.8877 32.0226 23.3794 31.1655C23.8815 30.3188 24.153 29.3946 24.194 28.393H30.6794C31.4068 28.393 31.9754 28.2227 32.3853 27.8819C32.7951 27.5411 33 27.0868 33 26.5189C33 26.0026 32.8514 25.5018 32.5543 25.0165C32.2572 24.5311 31.8832 24.0561 31.4324 23.5915C30.9919 23.1268 30.5513 22.6621 30.1108 22.1975C29.7727 21.8464 29.5063 21.3869 29.3116 20.819C29.1272 20.251 28.9889 19.647 28.8967 19.0068C28.8045 18.3666 28.7379 17.747 28.6969 17.1481C28.6661 15.1139 28.451 13.3275 28.0514 11.789C27.6621 10.2401 27.0525 8.94934 26.2226 7.91675C25.3927 6.88416 24.2964 6.12004 22.9338 5.6244C22.6776 4.61246 22.1551 3.7554 21.3662 3.05324C20.5875 2.35108 19.6296 2 18.4923 2C17.3653 2 16.4073 2.35108 15.6184 3.05324C14.8398 3.7554 14.3224 4.61246 14.0662 5.6244C12.7036 6.12004 11.6022 6.88416 10.7621 7.91675C9.93217 8.94934 9.32256 10.2401 8.93323 11.789C8.5439 13.3275 8.33386 15.1139 8.30313 17.1481C8.26214 17.747 8.19555 18.3666 8.10334 19.0068C8.01113 19.647 7.86769 20.251 7.67303 20.819C7.48861 21.3869 7.22734 21.8464 6.88924 22.1975C6.44868 22.6621 6.003 23.1268 5.5522 23.5915C5.11164 24.0561 4.7428 24.5311 4.44568 25.0165C4.14856 25.5018 4 26.0026 4 26.5189ZM6.98145 26.0542V25.8683C7.07366 25.7238 7.22734 25.5328 7.4425 25.2953C7.65766 25.0474 7.89843 24.779 8.16481 24.4898C8.44144 24.2007 8.71295 23.9064 8.97933 23.607C9.25596 23.2972 9.49673 22.9409 9.70164 22.5382C9.90655 22.1252 10.0807 21.6605 10.2242 21.1442C10.3676 20.6279 10.4803 20.0549 10.5623 19.425C10.6442 18.7951 10.7057 18.1033 10.7467 17.3495C10.7877 15.0984 11.0182 13.312 11.4383 11.9903C11.8583 10.6686 12.4167 9.68764 13.1134 9.04743C13.8203 8.3969 14.6144 7.94773 15.4955 7.6999C15.6902 7.6586 15.8387 7.58632 15.9412 7.48306C16.0436 7.36947 16.1 7.21459 16.1102 7.01839C16.141 6.21297 16.3664 5.55728 16.7864 5.05131C17.2167 4.53501 17.7854 4.27686 18.4923 4.27686C19.2095 4.27686 19.7781 4.53501 20.1982 5.05131C20.6285 5.55728 20.859 6.21297 20.8898 7.01839C20.8898 7.21459 20.941 7.36947 21.0435 7.48306C21.1562 7.58632 21.3047 7.6586 21.4891 7.6999C22.3703 7.94773 23.1592 8.3969 23.8559 9.04743C24.5628 9.68764 25.1263 10.6686 25.5464 11.9903C25.9767 13.312 26.2123 15.0984 26.2533 17.3495C26.284 18.1033 26.3404 18.7951 26.4224 19.425C26.5146 20.0549 26.6273 20.6279 26.7605 21.1442C26.9039 21.6605 27.0781 22.1252 27.283 22.5382C27.4879 22.9409 27.7287 23.2972 28.0053 23.607C28.2819 23.9064 28.5534 24.2007 28.8198 24.4898C29.0965 24.779 29.3372 25.0474 29.5421 25.2953C29.7573 25.5328 29.911 25.7238 30.0032 25.8683V26.0542H6.98145ZM15.2035 28.393H21.7965C21.735 29.4463 21.4021 30.2775 20.7976 30.8867C20.1931 31.5063 19.4247 31.8161 18.4923 31.8161C17.5702 31.8161 16.8018 31.5063 16.1871 30.8867C15.5826 30.2775 15.2547 29.4463 15.2035 28.393Z"
-                fill="white"
-              />
-            </svg>
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M5.83514 31H30.6268C32.0127 31 33.0854 30.6077 33.8451 29.823C34.615 29.0484 35 27.8814 35 26.3221V9.6628C35 8.11356 34.5945 6.95163 33.7835 6.17702C32.9828 5.39234 31.7766 5 30.1649 5H5.37319C3.98732 5 2.90942 5.39234 2.13949 6.17702C1.37983 6.95163 1 8.11356 1 9.6628V26.3221C1 27.8814 1.40036 29.0484 2.20109 29.823C3.01208 30.6077 4.22343 31 5.83514 31ZM5.74275 28.6912C4.97283 28.6912 4.38255 28.4951 3.97192 28.1027C3.56129 27.7003 3.35598 27.1068 3.35598 26.3221V9.6628C3.35598 8.88818 3.56129 8.3047 3.97192 7.91236C4.38255 7.50996 4.97283 7.30876 5.74275 7.30876H30.2572C31.0169 7.30876 31.6021 7.50996 32.0127 7.91236C32.4336 8.3047 32.644 8.89321 32.644 9.67789V26.3372C32.644 27.1118 32.4336 27.7003 32.0127 28.1027C31.6021 28.4951 31.0169 28.6912 30.2572 28.6912H5.74275ZM18.0308 22.0215C18.5749 22.0215 19.1087 21.9058 19.6322 21.6744C20.1558 21.443 20.6896 21.0658 21.2337 20.5427L33.7373 8.50087L32.1359 6.91642L19.894 18.762C19.5553 19.084 19.2319 19.3204 18.9239 19.4713C18.6262 19.6222 18.3285 19.6976 18.0308 19.6976C17.7228 19.6976 17.4149 19.6222 17.1069 19.4713C16.8092 19.3103 16.4961 19.0739 16.1676 18.762L3.86413 6.85607L2.24728 8.44051L14.8279 20.5427C15.3617 21.0658 15.8904 21.443 16.4139 21.6744C16.9478 21.9058 17.4867 22.0215 18.0308 22.0215ZM31.9819 29.0232L33.5833 27.4388L23.6205 17.7963L22.019 19.3656L31.9819 29.0232ZM2.46286 27.4539L4.06431 29.0383L14.0426 19.3656L12.4257 17.7963L2.46286 27.4539Z"
-                fill="white"
-              />
-            </svg>
-          </a>
         </li>
-        <li class="top-btn" onclick="gsap.to(window, {duration: 1, scrollTo: 0});">
-          <svg width="42" height="48" viewBox="0 0 42 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M42 24.0012C42 24.0012 21.0001 24.0012 21.0001 0.00122255" stroke="white" stroke-miterlimit="10" />
-            <path d="M0.00012269 24C0.00012269 24 21 24 21 2.14577e-06L21 48" stroke="white" stroke-miterlimit="10" />
+        <li data-scrub="1">
+          <div class="inside">
+            <img src="../_images/scroll-img-4.jpg" alt="" />
+          </div>
+        </li>
+        <li class="change-color black-to-white"></li>
+      </ul>
+    </section>
+
+    <section class="scroll-wide mt-300">
+      <div class="img"><img src="../_images/scroll-wide-img.jpg" alt="" /></div>
+      <div class="common-txt inner">
+        <h3>확장형 디자인으로 더 넓게</h3>
+        <p>
+          방해받지 않고 작업에 몰입할 수 있도록 확장형 디자인을 구현하여 넓은 시야를 확보했습니다. <br />낮에는 데스크 램프로 밤에는 무드등으로 원하는 각도로 자유롭게 사용할 수
+          있습니다.
+        </p>
+      </div>
+    </section>
+
+    <section class="scroll-horizon mt-300">
+      <div class="pin">
+        <div class="img"><img src="../_images/scroll-horizon-img.png" alt="" /></div>
+        <div class="common-txt min">
+          <h3>선명하고 감각적인 컬러</h3>
+          <p>전체 알루미늄 바디에 아노다이징을 사용한 <br />선명하고 감각적인 네 가지 컬러를 만나보세요.</p>
+          <div class="tags"><i>#로즈골드</i><i>#레이싱그린</i><i>#스칼렛레드</i><i>#스페이스그레이</i></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid-center inner mt-300">
+      <div class="left">
+        <video playsinline muted loop autoplay>
+          <source src="../_images/lighting-bottom-vid.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;">
+        </video>
+      </div>
+      <div class="common-txt min right">
+        <h3>안정감 있는 바디</h3>
+        <p>
+          알루미늄 바디로 완벽한 내구성, 변치않는 아름다움의 균형을 자랑하며, 흔들리지 않는 무게감으로 안정감 있게 사용할 수 있습니다. 램프 바디 전체를 알루미늄 소재로 만들어
+          LED의 발열을 효율적으로 분산 시켜 줍니다.
+        </p>
+      </div>
+    </section>
+
+    <section class="vid-content mt-300">
+      <i class="change-color white-to-black"></i>
+      <div class="vid">
+        <video playsinline muted loop autoplay>
+          <source src="../_images/full-cont-vid.mp4" type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;">
+        </video>
+      </div>
+      <div class="inner">
+        <div class="common-txt min">
+          <h3>누구도 경험하지 못한 특별한 사용성</h3>
+          <p>
+            적외선 센서를 사용한 모션 인식으로 전원, 밝기, 색온도 조절 까지. <br />휴식을 취할 때도, 업무에 집중할 때도 상황에 맞는 색온도와 밝기로 다채로운 공간을 연출해보세요.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid-img inner mt-300">
+      <article class="full">
+        <img src="../_images/grid-img1-1.gif" alt="">
+      </article>
+      <article>
+        <div class="txt">
+          <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="svg gery">
+            <g opacity="0.2" clip-path="url(#clip0_1377_308)">
+              <path
+                d="M14.074 15.8792L22 13L14.074 10.1208L11 0L7.92599 10.1208L0 13L7.92599 15.8792L11 26L14.074 15.8792Z"
+                fill="white" />
+            </g>
+            <defs>
+              <clipPath id="clip0_1377_308">
+                <rect width="22" height="26" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+          <h4>자유로운 각도 조절</h4>
+          <p>낮에는 데스크 램프로, 밤에는 무드등으로. 원하는 각도로 자유롭게 조절해서 사용할 수 있습니다.</p>
+        </div>
+        <div class="img grid-2-1">
+          <img src="../_images/grid-img2-1.jpg" alt="" />
+          <img src="../_images/grid-img2-2.gif" alt="">
+        </div>
+      </article>
+      <article>
+        <div class="txt">
+          <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="svg gery">
+            <g opacity="0.2" clip-path="url(#clip0_1377_308)">
+              <path
+                d="M14.074 15.8792L22 13L14.074 10.1208L11 0L7.92599 10.1208L0 13L7.92599 15.8792L11 26L14.074 15.8792Z"
+                fill="white" />
+            </g>
+            <defs>
+              <clipPath id="clip0_1377_308">
+                <rect width="22" height="26" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+          <h4>색온도에 따른 다채로운 공간 연출</h4>
+          <p>상황에 맞는 색온도로 학습과 업무의 능률을 높일 수 있습니다.</p>
+        </div>
+        <div class="grid grid-3">
+          <ul class="top">
+            <li>휴식</li>
+            <li>일상</li>
+            <li>업무·학습</li>
+          </ul>
+          <i class="line"></i>
+          <ul class="btm">
+            <li>
+              <b>전구색</b>
+              <p>3,000K</p>
+            </li>
+            <li>
+              <b>주백색</b>
+              <p>4,500K</p>
+            </li>
+            <li>
+              <b>주광색</b>
+              <p>5,700K</p>
+            </li>
+          </ul>
+          <div class="img">
+            <img src="../_images/grid-img3-1.jpg" alt="" />
+            <img src="../_images/grid-img3-2.jpg" alt="" />
+            <img src="../_images/grid-img3-3.jpg" alt="" />
+          </div>
+        </div>
+      </article>
+      <article>
+        <div class="txt">
+          <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="svg gery">
+            <g opacity="0.2" clip-path="url(#clip0_1377_308)">
+              <path
+                d="M14.074 15.8792L22 13L14.074 10.1208L11 0L7.92599 10.1208L0 13L7.92599 15.8792L11 26L14.074 15.8792Z"
+                fill="white" />
+            </g>
+            <defs>
+              <clipPath id="clip0_1377_308">
+                <rect width="22" height="26" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+          <h4>눈을 보호하는 플리커 프리 LED</h4>
+          <p>플리커 프리(Flicker-free) 기술이 적용되어 장시간 노출에도 눈이 편안합니다.</p>
+        </div>
+        <div class="grid grid-2">
+          <ul class="btm">
+            <li>
+              <p>플리커 현상이 있는</p>
+              <b>일반 LED</b>
+            </li>
+            <li>
+              <p>플리커 프리가 적용된</p>
+              <b>데스크 램프 이더</b>
+            </li>
+          </ul>
+          <div class="img">
+            <img src="../_images/grid-img4-1.gif" alt="" />
+            <img src="../_images/grid-img4-2.jpg" alt="" />
+          </div>
+        </div>
+      </article>
+      <article>
+        <div class="txt">
+          <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="svg gery">
+            <g opacity="0.2" clip-path="url(#clip0_1377_308)">
+              <path
+                d="M14.074 15.8792L22 13L14.074 10.1208L11 0L7.92599 10.1208L0 13L7.92599 15.8792L11 26L14.074 15.8792Z"
+                fill="white" />
+            </g>
+            <defs>
+              <clipPath id="clip0_1377_308">
+                <rect width="22" height="26" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+          <h4>본연의 컬러를 더욱 선명하게 보여주는 SunLike LED</h4>
+          <p>프랑스 그레뱅 파리 뮤지엄, 이탈리아 폼페이 벽화 조명 등 세계적인 대형 뮤지엄에서도 SunLike LED를 사용하고 있습니다.</p>
+        </div>
+        <div class="grid grid-2">
+          <ul class="btm">
+            <li>
+              <b>일반 LED 사용시</b>
+            </li>
+            <li>
+              <b>SunLike LED 사용시</b>
+            </li>
+          </ul>
+          <div class="img">
+            <img src="../_images/grid-img5-1.jpg" alt="" />
+            <img src="../_images/grid-img5-2.jpg" alt="" />
+            <svg width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.4">
+                <path d="M0 15.001C0 15.001 13 15.001 13 30.001" stroke="white" stroke-miterlimit="10" />
+                <path d="M26 15C26 15 13 15 13 30V0" stroke="white" stroke-miterlimit="10" />
+              </g>
+            </svg>
+            <svg width="26" height="30" viewBox="0 0 26 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.4">
+                <path d="M0 15.001C0 15.001 13 15.001 13 30.001" stroke="white" stroke-miterlimit="10" />
+                <path d="M26 15C26 15 13 15 13 30V0" stroke="white" stroke-miterlimit="10" />
+              </g>
+            </svg>
+            <img src="../_images/grid-img5-3.jpg" alt="" />
+            <img src="../_images/grid-img5-4.jpg" alt="" />
+          </div>
+        </div>
+      </article>
+    </section>
+    <section class="img-slider mt-300">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="../_images/slider1.jpg" alt="" /></div>
+        <div class="swiper-slide"><img src="../_images/slider2.jpg" alt="" /></div>
+        <div class="swiper-slide"><img src="../_images/slider3.jpg" alt="" /></div>
+        <div class="swiper-slide"><img src="../_images/slider4.jpg" alt="" /></div>
+        <div class="swiper-slide"><img src="../_images/slider5.jpg" alt="" /></div>
+        <div class="swiper-slide"><img src="../_images/slider6.jpg" alt="" /></div>
+        <div class="swiper-slide"><img src="../_images/slider7.jpg" alt="" /></div>
+        <div class="swiper-slide"><img src="../_images/slider8.jpg" alt="" /></div>
+      </div>
+      <ul class="arws">
+        <li class="prev">
+          <svg width="52" height="45" viewBox="0 0 52 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g opacity="0.5">
+              <path d="M26 0C26 0 26 22.4997 8.17844e-07 22.4997" stroke="white" stroke-miterlimit="10" />
+              <path d="M26 44.9992C26 44.9992 26 22.4995 1.19209e-07 22.4995L52 22.4995" stroke="white"
+                stroke-miterlimit="10" />
+            </g>
+          </svg>
+        </li>
+        <li class="next">
+          <svg width="52" height="45" viewBox="0 0 52 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g opacity="0.5">
+              <path d="M26 45C26 45 26 22.5003 52 22.5003" stroke="white" stroke-miterlimit="10" />
+              <path d="M26 0.000270033C26 0.000270033 26 22.5 52 22.5L0 22.5" stroke="white" stroke-miterlimit="10" />
+            </g>
           </svg>
         </li>
       </ul>
-    </div>
-    <footer class="footer"></footer>
-  </body>
+    </section>
+    <i class="change-color black-to-white"></i>
+
+    <section class="form-wrap mt-300 inner">
+      <img src="../_images/email-img.png" alt="" />
+      <ul class="email-form">
+        <li class="tit">
+          <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_1377_349)">
+              <path
+                d="M14.074 15.8792L22 13L14.074 10.1208L11 0L7.92599 10.1208L0 13L7.92599 15.8792L11 26L14.074 15.8792Z"
+                fill="black" />
+            </g>
+            <defs>
+              <clipPath id="clip0_1377_349">
+                <rect width="22" height="26" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+
+          <h4>런칭 알림 신청하고<br /><b>할인 쿠폰 받기</b></h4>
+          <p>탱그램라이팅 모션 인식 데스크 램프 이더(AETHER)가 런칭되면<br />바로 사용할 수 있는 할인 쿠폰을 보내드립니다.</p>
+        </li>
+        <li class="form">
+          <div class="input">
+            <label for="email">이메일 주소</label>
+            <input type="email" id="email" placeholder="이메일 주소를 입력해주세요." />
+          </div>
+          <div class="grid">
+            <div class="check-box">
+              <div class="check">
+                <input type="checkbox" id="chk" />
+                <i class="xi-check-min"></i>
+              </div>
+              <p>(필수) 개인정보 수집·이용 및 광고성 정보 수신에 동의합니다.</p>
+            </div>
+            <div class="toggle-box">
+              <p>
+                새소식 및 이벤트 안내, 할인 쿠폰 발송 등을 위한 최소한의 개인정보를 수집하고 이용합니다. 수집된 정보는 발송 외 다른 목적으로 이용되지 않으며, 서비스가 종료되거나
+                이용을 해지할 경우 즉시 파기됩니다.
+              </p>
+            </div>
+          </div>
+          <button>신청하기</button>
+        </li>
+      </ul>
+    </section>
+
+    <ul class="float-btns">
+      <li class="modal-btn">
+        <a href="">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M9.30268 17.1478C10.9476 17.1478 12.2401 16.5253 13.1801 15.2803C14.1201 14.0251 14.59 12.3246 14.59 10.1787C14.59 8.03276 14.1201 6.34236 13.1801 5.10745C12.2401 3.87253 10.9476 3.25508 9.30268 3.25508C7.65773 3.25508 6.36015 3.8776 5.40996 5.12263C4.46999 6.35754 4 8.04289 4 10.1787C4 12.3246 4.46999 14.0251 5.40996 15.2803C6.34994 16.5253 7.64751 17.1478 9.30268 17.1478ZM9.30268 15.0222C8.41379 15.0222 7.71903 14.6021 7.21839 13.7619C6.71775 12.9117 6.46743 11.7173 6.46743 10.1787C6.46743 8.67046 6.71775 7.49123 7.21839 6.64096C7.71903 5.79069 8.41379 5.36556 9.30268 5.36556C10.1814 5.36556 10.871 5.79069 11.3716 6.64096C11.8723 7.4811 12.1226 8.66034 12.1226 10.1787C12.1226 11.7173 11.8723 12.9117 11.3716 13.7619C10.8812 14.6021 10.1916 15.0222 9.30268 15.0222ZM26.7126 31.7542C28.3576 31.7542 29.6501 31.1266 30.59 29.8714C31.53 28.6264 32 26.936 32 24.8002C32 22.6543 31.53 20.9639 30.59 19.729C29.6501 18.484 28.3576 17.8614 26.7126 17.8614C25.0677 17.8614 23.7701 18.484 22.8199 19.729C21.8799 20.9639 21.41 22.6543 21.41 24.8002C21.41 26.9461 21.8799 28.6416 22.8199 29.8866C23.7599 31.1317 25.0575 31.7542 26.7126 31.7542ZM26.7126 29.6437C25.8238 29.6437 25.129 29.2186 24.6284 28.3683C24.1277 27.518 23.8774 26.3287 23.8774 24.8002C23.8774 23.2819 24.1277 22.1026 24.6284 21.2625C25.129 20.4122 25.8238 19.9871 26.7126 19.9871C27.5913 19.9871 28.281 20.4072 28.7816 21.2473C29.2822 22.0875 29.5326 23.2718 29.5326 24.8002C29.5326 26.3287 29.2822 27.518 28.7816 28.3683C28.2912 29.2186 27.6015 29.6437 26.7126 29.6437ZM8.19923 31.8149C8.48531 31.9769 8.80715 32.0325 9.16475 31.9819C9.53257 31.9313 9.83908 31.7339 10.0843 31.3898L28.092 5.01635C28.3576 4.64182 28.4342 4.28248 28.3218 3.93833C28.2197 3.58405 28.0255 3.32087 27.7395 3.1488C27.4738 3.00709 27.1673 2.9666 26.8199 3.02733C26.4828 3.08806 26.1814 3.30569 25.9157 3.68021L7.90805 29.9777C7.63218 30.3624 7.54023 30.7217 7.63218 31.0557C7.72414 31.3898 7.91315 31.6428 8.19923 31.8149Z"
+              fill="white" />
+          </svg>
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M10.5751 34H26.4249C27.8424 34 28.9282 33.6285 29.6823 32.8855C30.4464 32.1425 30.8284 31.0483 30.8284 29.6031V20.229H30.934C31.5975 20.0865 32.1052 19.7557 32.4571 19.2366C32.819 18.7176 33 18.0712 33 17.2977V13.2824C33 12.3562 32.7537 11.6183 32.261 11.0687C31.7684 10.5191 31.0596 10.2443 30.1347 10.2443H27.0884C27.4906 9.84733 27.8022 9.37913 28.0234 8.83969C28.2446 8.29008 28.3552 7.69975 28.3552 7.0687C28.3552 6.08143 28.1189 5.20611 27.6464 4.44275C27.1839 3.67939 26.5556 3.08397 25.7613 2.65649C24.9771 2.21883 24.0974 2 23.1222 2C22.0666 2 21.1265 2.2799 20.3021 2.83969C19.4777 3.39949 18.8745 4.19338 18.4925 5.22137C18.1104 4.19338 17.5072 3.39949 16.6828 2.83969C15.8684 2.2799 14.9284 2 13.8627 2C12.8875 2 12.0028 2.21883 11.2085 2.65649C10.4243 3.08397 9.79598 3.67939 9.32345 4.44275C8.86098 5.20611 8.62975 6.08143 8.62975 7.0687C8.62975 7.69975 8.74034 8.29008 8.96152 8.83969C9.19275 9.37913 9.50945 9.84733 9.9116 10.2443H6.86531C5.98059 10.2443 5.28185 10.5191 4.76911 11.0687C4.25637 11.6183 4 12.3562 4 13.2824V17.2977C4 18.0712 4.17594 18.7176 4.52782 19.2366C4.8797 19.7557 5.38742 20.0865 6.05096 20.229H6.15653V29.6031C6.15653 31.0483 6.53354 32.1425 7.28757 32.8855C8.05166 33.6285 9.14751 34 10.5751 34ZM17.1503 31.7099H10.545C9.92165 31.7099 9.43907 31.5369 9.09724 31.1908C8.75542 30.8448 8.5845 30.3562 8.5845 29.7252V20.3359H17.1503V31.7099ZM19.8346 31.7099V20.3359H28.4004V29.7252C28.4004 30.3562 28.2295 30.8448 27.8877 31.1908C27.5559 31.5369 27.0733 31.7099 26.4399 31.7099H19.8346ZM17.1503 18.0305H7.48362C7.10158 18.0305 6.83013 17.9491 6.66927 17.7863C6.50841 17.6132 6.42798 17.3333 6.42798 16.9466V13.6183C6.42798 13.2316 6.50841 12.9567 6.66927 12.7939C6.83013 12.631 7.10158 12.5496 7.48362 12.5496H17.1503V18.0305ZM19.8346 18.0305V12.5496H29.5315C29.9034 12.5496 30.1699 12.631 30.3307 12.7939C30.4916 12.9567 30.572 13.2316 30.572 13.6183V16.9466C30.572 17.3333 30.4916 17.6132 30.3307 17.7863C30.1699 17.9491 29.9034 18.0305 29.5315 18.0305H19.8346ZM17.2558 10.2443H14.9033C13.7169 10.2443 12.792 9.94911 12.1284 9.35878C11.475 8.76845 11.1482 8.05089 11.1482 7.20611C11.1482 6.36132 11.4197 5.70992 11.9626 5.25191C12.5055 4.78372 13.1891 4.54962 14.0135 4.54962C14.9184 4.54962 15.6824 4.87532 16.3058 5.52672C16.9392 6.16794 17.2558 7.05344 17.2558 8.18321V10.2443ZM19.7291 10.2443V8.18321C19.7291 7.05344 20.0458 6.16794 20.6791 5.52672C21.3125 4.87532 22.0766 4.54962 22.9714 4.54962C23.8059 4.54962 24.4895 4.78372 25.0224 5.25191C25.5653 5.70992 25.8367 6.36132 25.8367 7.20611C25.8367 8.05089 25.5049 8.76845 24.8414 9.35878C24.1879 9.94911 23.268 10.2443 22.0816 10.2443H19.7291Z"
+              fill="white" />
+          </svg>
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M20.0886 35C20.2905 35 20.4569 34.9335 20.5881 34.8005C20.7193 34.6778 20.805 34.509 20.8454 34.2942C21.0573 32.6165 21.2944 31.1998 21.5568 30.0438C21.8292 28.8879 22.1823 27.9366 22.6162 27.1898C23.0602 26.4431 23.6454 25.8498 24.3719 25.4099C25.0984 24.9598 26.0216 24.6069 27.1416 24.3512C28.2616 24.0954 29.644 23.8755 31.2886 23.6914C31.5005 23.6709 31.6721 23.5891 31.8032 23.4459C31.9344 23.3026 32 23.1287 32 22.9242C32 22.7298 31.9344 22.561 31.8032 22.4178C31.6721 22.2746 31.5005 22.1928 31.2886 22.1723C29.644 21.9882 28.2616 21.7682 27.1416 21.5125C26.0216 21.2568 25.0984 20.9038 24.3719 20.4537C23.6454 20.0037 23.0602 19.4052 22.6162 18.6585C22.1823 17.9117 21.8292 16.9655 21.5568 15.8198C21.2944 14.6639 21.0573 13.242 20.8454 11.5541C20.805 11.3496 20.7193 11.1859 20.5881 11.0631C20.4569 10.9301 20.2905 10.8637 20.0886 10.8637C19.8969 10.8637 19.7305 10.9301 19.5892 11.0631C19.458 11.1859 19.3773 11.3496 19.347 11.5541C19.1351 13.242 18.893 14.6639 18.6205 15.8198C18.3582 16.9655 18.005 17.9117 17.5611 18.6585C17.1171 19.4052 16.5319 20.0037 15.8054 20.4537C15.0789 20.9038 14.1557 21.2568 13.0357 21.5125C11.9157 21.7682 10.5384 21.9882 8.90378 22.1723C8.6818 22.1928 8.50523 22.2746 8.37405 22.4178C8.24288 22.561 8.1773 22.7298 8.1773 22.9242C8.1773 23.1287 8.24288 23.3026 8.37405 23.4459C8.50523 23.5891 8.6818 23.6709 8.90378 23.6914C10.5384 23.9062 11.9106 24.1517 13.0205 24.4279C14.1405 24.6938 15.0587 25.0468 15.7751 25.4866C16.5016 25.9265 17.0868 26.5147 17.5308 27.2512C17.9748 27.9877 18.3279 28.9237 18.5903 30.0592C18.8627 31.2049 19.115 32.6165 19.347 34.2942C19.3773 34.509 19.458 34.6778 19.5892 34.8005C19.7305 34.9335 19.8969 35 20.0886 35ZM9.82703 18.0294C9.96829 18.0294 10.0843 17.9833 10.1751 17.8913C10.2659 17.7992 10.3214 17.6867 10.3416 17.5537C10.4728 16.5308 10.609 15.7329 10.7503 15.16C10.8915 14.5872 11.1085 14.1575 11.4011 13.8711C11.7038 13.5745 12.1477 13.3494 12.733 13.196C13.3283 13.0323 14.1506 12.8482 15.2 12.6436C15.5027 12.5822 15.6541 12.4083 15.6541 12.1219C15.6541 11.9787 15.6086 11.861 15.5178 11.769C15.4371 11.6769 15.3312 11.6257 15.2 11.6155C14.1506 11.4621 13.3283 11.3138 12.733 11.1705C12.1377 11.0273 11.6886 10.8074 11.3859 10.5107C11.0933 10.2039 10.8764 9.75376 10.7351 9.16046C10.604 8.56715 10.4728 7.75391 10.3416 6.72074C10.3013 6.39339 10.1297 6.22972 9.82703 6.22972C9.52432 6.22972 9.35279 6.39851 9.31243 6.73608C9.19135 7.75902 9.06018 8.55692 8.91892 9.12977C8.77766 9.69239 8.55568 10.1169 8.25297 10.4033C7.95027 10.6898 7.50126 10.9148 6.90595 11.0785C6.31063 11.2319 5.49333 11.4109 4.45405 11.6155C4.15135 11.6667 4 11.8355 4 12.1219C4 12.4185 4.17153 12.5924 4.51459 12.6436C5.54378 12.8175 6.35099 12.9811 6.93622 13.1346C7.53153 13.288 7.9755 13.5131 8.26811 13.8097C8.57081 14.0962 8.78775 14.5309 8.91892 15.114C9.06018 15.6971 9.19135 16.5001 9.31243 17.523C9.35279 17.8606 9.52432 18.0294 9.82703 18.0294ZM17.1524 7.4726C17.3341 7.4726 17.445 7.37031 17.4854 7.16572C17.5964 6.54172 17.6973 6.05071 17.7881 5.69268C17.8789 5.33465 18.0101 5.06357 18.1816 4.87944C18.3632 4.68508 18.6357 4.53164 18.9989 4.41911C19.3622 4.30659 19.8717 4.19407 20.5276 4.08154C20.7294 4.04063 20.8303 3.92299 20.8303 3.72863C20.8303 3.5445 20.7294 3.43197 20.5276 3.39106C19.8717 3.2683 19.3622 3.15578 18.9989 3.05349C18.6357 2.94096 18.3632 2.79263 18.1816 2.60851C18.0101 2.41415 17.8789 2.13795 17.7881 1.77992C17.6973 1.42189 17.5964 0.930878 17.4854 0.306883C17.445 0.102294 17.3341 0 17.1524 0C16.9607 0 16.8497 0.102294 16.8195 0.306883C16.6984 0.930878 16.5924 1.42189 16.5016 1.77992C16.4209 2.13795 16.2897 2.41415 16.1081 2.60851C15.9366 2.79263 15.6692 2.94096 15.3059 3.05349C14.9427 3.15578 14.4332 3.2683 13.7773 3.39106C13.5755 3.43197 13.4746 3.5445 13.4746 3.72863C13.4746 3.92299 13.5755 4.04063 13.7773 4.08154C14.4332 4.19407 14.9427 4.30659 15.3059 4.41911C15.6692 4.53164 15.9366 4.68508 16.1081 4.87944C16.2897 5.06357 16.4209 5.33465 16.5016 5.69268C16.5924 6.05071 16.6984 6.54172 16.8195 7.16572C16.8497 7.37031 16.9607 7.4726 17.1524 7.4726Z"
+              fill="white" />
+          </svg>
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M4 26.5189C4 27.0868 4.20491 27.5411 4.61473 27.8819C5.02455 28.2227 5.59318 28.393 6.32061 28.393H12.806C12.847 29.3946 13.1134 30.3188 13.6052 31.1655C14.1072 32.0123 14.7783 32.6938 15.6184 33.2101C16.4586 33.7367 17.4165 34 18.4923 34C19.5783 34 20.5414 33.7419 21.3816 33.2256C22.2217 32.7093 22.8877 32.0226 23.3794 31.1655C23.8815 30.3188 24.153 29.3946 24.194 28.393H30.6794C31.4068 28.393 31.9754 28.2227 32.3853 27.8819C32.7951 27.5411 33 27.0868 33 26.5189C33 26.0026 32.8514 25.5018 32.5543 25.0165C32.2572 24.5311 31.8832 24.0561 31.4324 23.5915C30.9919 23.1268 30.5513 22.6621 30.1108 22.1975C29.7727 21.8464 29.5063 21.3869 29.3116 20.819C29.1272 20.251 28.9889 19.647 28.8967 19.0068C28.8045 18.3666 28.7379 17.747 28.6969 17.1481C28.6661 15.1139 28.451 13.3275 28.0514 11.789C27.6621 10.2401 27.0525 8.94934 26.2226 7.91675C25.3927 6.88416 24.2964 6.12004 22.9338 5.6244C22.6776 4.61246 22.1551 3.7554 21.3662 3.05324C20.5875 2.35108 19.6296 2 18.4923 2C17.3653 2 16.4073 2.35108 15.6184 3.05324C14.8398 3.7554 14.3224 4.61246 14.0662 5.6244C12.7036 6.12004 11.6022 6.88416 10.7621 7.91675C9.93217 8.94934 9.32256 10.2401 8.93323 11.789C8.5439 13.3275 8.33386 15.1139 8.30313 17.1481C8.26214 17.747 8.19555 18.3666 8.10334 19.0068C8.01113 19.647 7.86769 20.251 7.67303 20.819C7.48861 21.3869 7.22734 21.8464 6.88924 22.1975C6.44868 22.6621 6.003 23.1268 5.5522 23.5915C5.11164 24.0561 4.7428 24.5311 4.44568 25.0165C4.14856 25.5018 4 26.0026 4 26.5189ZM6.98145 26.0542V25.8683C7.07366 25.7238 7.22734 25.5328 7.4425 25.2953C7.65766 25.0474 7.89843 24.779 8.16481 24.4898C8.44144 24.2007 8.71295 23.9064 8.97933 23.607C9.25596 23.2972 9.49673 22.9409 9.70164 22.5382C9.90655 22.1252 10.0807 21.6605 10.2242 21.1442C10.3676 20.6279 10.4803 20.0549 10.5623 19.425C10.6442 18.7951 10.7057 18.1033 10.7467 17.3495C10.7877 15.0984 11.0182 13.312 11.4383 11.9903C11.8583 10.6686 12.4167 9.68764 13.1134 9.04743C13.8203 8.3969 14.6144 7.94773 15.4955 7.6999C15.6902 7.6586 15.8387 7.58632 15.9412 7.48306C16.0436 7.36947 16.1 7.21459 16.1102 7.01839C16.141 6.21297 16.3664 5.55728 16.7864 5.05131C17.2167 4.53501 17.7854 4.27686 18.4923 4.27686C19.2095 4.27686 19.7781 4.53501 20.1982 5.05131C20.6285 5.55728 20.859 6.21297 20.8898 7.01839C20.8898 7.21459 20.941 7.36947 21.0435 7.48306C21.1562 7.58632 21.3047 7.6586 21.4891 7.6999C22.3703 7.94773 23.1592 8.3969 23.8559 9.04743C24.5628 9.68764 25.1263 10.6686 25.5464 11.9903C25.9767 13.312 26.2123 15.0984 26.2533 17.3495C26.284 18.1033 26.3404 18.7951 26.4224 19.425C26.5146 20.0549 26.6273 20.6279 26.7605 21.1442C26.9039 21.6605 27.0781 22.1252 27.283 22.5382C27.4879 22.9409 27.7287 23.2972 28.0053 23.607C28.2819 23.9064 28.5534 24.2007 28.8198 24.4898C29.0965 24.779 29.3372 25.0474 29.5421 25.2953C29.7573 25.5328 29.911 25.7238 30.0032 25.8683V26.0542H6.98145ZM15.2035 28.393H21.7965C21.735 29.4463 21.4021 30.2775 20.7976 30.8867C20.1931 31.5063 19.4247 31.8161 18.4923 31.8161C17.5702 31.8161 16.8018 31.5063 16.1871 30.8867C15.5826 30.2775 15.2547 29.4463 15.2035 28.393Z"
+              fill="white" />
+          </svg>
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M5.83514 31H30.6268C32.0127 31 33.0854 30.6077 33.8451 29.823C34.615 29.0484 35 27.8814 35 26.3221V9.6628C35 8.11356 34.5945 6.95163 33.7835 6.17702C32.9828 5.39234 31.7766 5 30.1649 5H5.37319C3.98732 5 2.90942 5.39234 2.13949 6.17702C1.37983 6.95163 1 8.11356 1 9.6628V26.3221C1 27.8814 1.40036 29.0484 2.20109 29.823C3.01208 30.6077 4.22343 31 5.83514 31ZM5.74275 28.6912C4.97283 28.6912 4.38255 28.4951 3.97192 28.1027C3.56129 27.7003 3.35598 27.1068 3.35598 26.3221V9.6628C3.35598 8.88818 3.56129 8.3047 3.97192 7.91236C4.38255 7.50996 4.97283 7.30876 5.74275 7.30876H30.2572C31.0169 7.30876 31.6021 7.50996 32.0127 7.91236C32.4336 8.3047 32.644 8.89321 32.644 9.67789V26.3372C32.644 27.1118 32.4336 27.7003 32.0127 28.1027C31.6021 28.4951 31.0169 28.6912 30.2572 28.6912H5.74275ZM18.0308 22.0215C18.5749 22.0215 19.1087 21.9058 19.6322 21.6744C20.1558 21.443 20.6896 21.0658 21.2337 20.5427L33.7373 8.50087L32.1359 6.91642L19.894 18.762C19.5553 19.084 19.2319 19.3204 18.9239 19.4713C18.6262 19.6222 18.3285 19.6976 18.0308 19.6976C17.7228 19.6976 17.4149 19.6222 17.1069 19.4713C16.8092 19.3103 16.4961 19.0739 16.1676 18.762L3.86413 6.85607L2.24728 8.44051L14.8279 20.5427C15.3617 21.0658 15.8904 21.443 16.4139 21.6744C16.9478 21.9058 17.4867 22.0215 18.0308 22.0215ZM31.9819 29.0232L33.5833 27.4388L23.6205 17.7963L22.019 19.3656L31.9819 29.0232ZM2.46286 27.4539L4.06431 29.0383L14.0426 19.3656L12.4257 17.7963L2.46286 27.4539Z"
+              fill="white" />
+          </svg>
+        </a>
+      </li>
+      <li class="top-btn" onclick="gsap.to(window, {duration: 1, scrollTo: 0});">
+        <svg width="42" height="48" viewBox="0 0 42 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M42 24.0012C42 24.0012 21.0001 24.0012 21.0001 0.00122255" stroke="white" stroke-miterlimit="10" />
+          <path d="M0.00012269 24C0.00012269 24 21 24 21 2.14577e-06L21 48" stroke="white" stroke-miterlimit="10" />
+        </svg>
+      </li>
+    </ul>
+  </div>
+  <footer class="footer"></footer>
+</body>
+
 </html>
